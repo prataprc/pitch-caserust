@@ -347,6 +347,9 @@ code.hljs {
 .mt20 {
     margin-top: 20px !important;
 }
+.mt30 {
+    margin-top: 30px !important;
+}
 .text-left {
     text-align: left !important;
 }
@@ -376,9 +379,35 @@ div.why-program-2 {
     bottom: 2em;
     text-align: center;
 }
-div.size-80 {
+div.size-90, ul.size-90, table.size-90 {
+    font-size: 90% !important;
+}
+div.size-80, ul.size-80, table.size-80 {
     font-size: 80% !important;
 }
-ul.size-80 {
-    font-size: 80% !important;
+div.size-70, table.size-70 {
+    font-size: 70% !important;
+}
+div.size-60, table.size-60 {
+    font-size: 60% !important;
+}
+div.joker {
+    top: 3em;
+}
+div.joker-line {
+    top: 3.75em;
+    left: 7.2em;
+}
+div.batman {
+    top: 2em;
+}
+div.batman-line {
+    top: 9em;
+    left: 13em;
+}
+ul.crash-free {
+    position: fixed;
+    top: 18em;
+    text-align: left;
+    font-size: 60% !important;
 }

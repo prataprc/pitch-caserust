@@ -56,3 +56,4 @@ transition : fade
 
 slide-number : true
 vertical-center : false
+charts : true

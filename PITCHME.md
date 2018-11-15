@@ -30,10 +30,6 @@ involves a computer.
 
 <br/>
 
-@snap[fragment text-center]
-This case study is also going to be a case in history !
-@snapend
-
 ---
 
 Why program ?
@@ -163,15 +159,351 @@ Good luck, let us go back !
 Crash free
 ==========
 
+@snap[north-west joker fragment]
+![JOKER](assets/joker.jpeg)
+@snapend
+
+@snap[joker-line west fragment]
+Out of control
+@snapend
+
+@snap[north-east batman fragment]
+![JOKER](assets/batman.jpeg)
+@snapend
+
+@snap[batman-line east fragment]
+Garbage collector
+@snapend
+
+@ul[crash-free]
+- @color[blue](C) can give programmer total freedom, free as in "you can shoot yourself all you want" free.
+- On the other end - languages like @color[blue](Python Java Javascript) has garbage collection for safety. And sadly, the garbage collector doesn't know that he is a bad influence.
+@ulend
+
++++
+
+Safe programs
+=============
+
+@snap[size-70 fragment]
+When programmers want total control on the memory layout and program
+execution, sometimes they can shoot themself on their foot.
+@snapend
+
+<table class="mt30 size-60">
+	<tr><td class="text-blue text-left fragment"> Dangling pointers </td>
+	    <td class="text-gray text-left fragment"> When allocated memory is not freed </td>
+    </tr>
+	<tr><td class="text-blue text-left fragment"> Double free </td>
+	    <td class="text-gray text-left fragment"> When allocated memory is freed twice </td>
+    </tr>
+	<tr><td class="text-blue text-left fragment"> Segmentation fault </td>
+	    <td class="text-gray text-left fragment"> When a pointer goes bad and steps into protected memory </td>
+    </tr>
+	<tr><td class="text-blue text-left fragment"> Out-of-bound index </td>
+	    <td class="text-gray text-left fragment"> When overflowing index operation corrupts stack or heap</td>
+    </tr>
+	<tr><td class="text-blue text-left fragment"> Data race </td>
+	    <td class="text-gray text-left fragment"> When multiple threads try to read/write the same value </td>
+    </tr>
+</table>
+
+@snap[mt20 size-70 fragment]
+In Rust, programmers can have total control on the memory layout and
+execution behaviour without garbage collection. Don't have to bother with
+@color[blue](alloc) and @color[blue](free).
+@snapend
+
 ---
 
 Performance
 ===========
 
+@snap[mt20 size-80 fragment]
+With more and more transistors getting packed in a micro-chip, and ever
+increasing GigaBytes of Memory, response time of 30ms is barely noticed
+against response time of 10ms.
+@snapend
+
+@snap[mt20 size-80 fragment]
+But then -
+@snapend
+
+@snap[mt20 size-80 fragment]
+Advent of wireless networks and lithium batteries have added a new
+dimension to computing - @css[text-blue fragment](mobility).
+@snapend
+
+@snap[mt20 size-80 fragment]
+With micro-chips having -
+@ul
+- 1/3rd of the transistors.
+- running at 1/3rd clock rate.
+- 1/3rd of the memory
+- can last @color[blue](5-10 times longer) with same battery capacity.
+@ulend
+@snapend
+
++++
+
+Performance: Execution time
+===========================
+
+<canvas data-chart="line">
+<!-- 
+{
+ "data": {
+  "labels": [
+     "reverse-complement", "k-nucleotide", "pidigits", "spectral-norm",
+     "mandelbrot", "fasta", "binary-trees", "fannkuch-redux", "n-body",
+     "regex-redux"
+   ],
+  "datasets": [
+   {
+    "fill": false,
+    "cubicInterpolationMode": "monotone",
+    "data": [1.76, 6.27, 1.75, 1.98, 1.64, 1.36, 3.72, 8.72, 9.36, 1.46 ],
+    "label":"C",
+    "borderColor":"crimson"
+   },
+   {
+    "fill": false,
+    "cubicInterpolationMode": "monotone",
+    "data": [4.00, 13.06, 2.04, 3.95, 5.47, 2.06, 28.56, 17.83, 21.00, 28.89 ],
+    "label":"Go",
+    "borderColor":"green"
+   },
+   {
+    "fill": false,
+    "cubicInterpolationMode": "monotone",
+    "data": [1.60, 5.98, 1.74, 1.97, 1.74, 1.46, 4.14, 9.87, 13.25, 2.44 ],
+    "label":"Rust",
+    "borderColor":"brown"
+   },
+   {
+    "fill": false,
+    "cubicInterpolationMode": "monotone",
+    "data": [3.29, 8.66, 3.13, 4.27, 6.96, 2.32, 8.28, 17.91, 22, 10.52 ],
+    "label":"Java",
+    "borderColor":"cyan"
+   }
+  ]
+ }, 
+ "options": { "responsive": "true" }
+}
+-->
+</canvas>
+
+@snap[mt20 size-60]
+Courtesy: https://benchmarksgame-team.pages.debian.net/benchmarksgame
+@snapend
+
++++
+
+Performance: Memory
+===================
+
+<canvas data-chart="line">
+<!-- 
+{
+ "data": {
+  "labels": [
+     "reverse-complement", "k-nucleotide", "pidigits", "spectral-norm",
+     "mandelbrot", "fasta", "binary-trees", "fannkuch-redux", "n-body",
+     "regex-redux"
+   ],
+  "datasets": [
+   {
+    "fill": false,
+    "cubicInterpolationMode": "monotone",
+    "data": [995212, 137956, 4520, 2600, 33712, 3112, 175692, 1848, 1808, 194804 ],
+    "label":"Rust",
+    "borderColor":"brown"
+   },
+   {
+    "fill": false,
+    "cubicInterpolationMode": "monotone",
+    "data": [994524, 130024, 2708, 1160, 26188, 2920, 117408, 916, 1088, 152124 ],
+    "label":"C",
+    "borderColor":"crimson"
+   },
+   {
+    "fill": false,
+    "cubicInterpolationMode": "monotone",
+    "data": [826668, 148316, 8964, 2664, 31040, 3432, 466636, 1480, 1536, 338812 ],
+    "label":"Go",
+    "borderColor":"green"
+   },
+   {
+    "fill": false,
+    "cubicInterpolationMode": "monotone",
+    "data": [724008, 385768, 37324, 32960, 76748, 42556, 982224, 31560, 32496, 637380],
+    "label":"Java",
+    "borderColor":"cyan"
+   }
+  ]
+ }, 
+ "options": { "responsive": "true" }
+}
+-->
+</canvas>
+
+@snap[mt20 size-60]
+Courtesy: https://benchmarksgame-team.pages.debian.net/benchmarksgame
+@snapend
+
++++
+
+Performance: Source lines
+=========================
+
+<canvas data-chart="line">
+<!-- 
+{
+ "data": {
+  "labels": [
+     "reverse-complement", "k-nucleotide", "pidigits", "spectral-norm",
+     "mandelbrot", "fasta", "binary-trees", "fannkuch-redux", "n-body",
+     "regex-redux"
+   ],
+  "datasets": [
+   {
+    "fill": false,
+    "cubicInterpolationMode": "monotone",
+    "data": [1376, 1648, 1366, 1126, 1332, 1906, 721, 1020, 1805, 765 ],
+    "label":"Rust",
+    "borderColor":"brown"
+   },
+   {
+    "fill": false,
+    "cubicInterpolationMode": "monotone",
+    "data": [1438, 1506, 452, 1139, 1135, 2268, 836, 910, 1490, 1397 ],
+    "label":"C",
+    "borderColor":"crimson"
+   },
+   {
+    "fill": false,
+    "cubicInterpolationMode": "monotone",
+    "data": [611, 1722, 603, 548, 905, 1358, 654, 900, 1200, 802],
+    "label":"Go",
+    "borderColor":"green"
+   },
+   {
+    "fill": false,
+    "cubicInterpolationMode": "monotone",
+    "data": [2183, 1812, 938, 950, 796, 2473, 835, 1282, 1489, 929],
+    "label":"Java",
+    "borderColor":"cyan"
+   }
+  ]
+ },
+ "options": { "responsive": "true" }
+}
+-->
+</canvas>
+
+@snap[mt20 size-60]
+Courtesy: https://benchmarksgame-team.pages.debian.net/benchmarksgame
+@snapend
+
 ---
 
 Strong type system
 ==================
+
+@snap[mt20 size-80 fragment]
+Ask a seasoned programmer, where the longest hours are spent ...
+@snapend
+
+<table class="mt30 size-80">
+  <tr>
+    <td class="fragment"> Design ? </td>
+    <td class="fragment"> Implementation ? </td>
+    <td class="fragment"> Testing ? </td>
+   </tr>
+</table>
+
+@snap[mt20 text-center size-80 fragment]
+As it happens most of the hard-work goes into
+@snapend
+@snap[mt20 text-center fragment]
+@size[2em](Debugging!!)
+@snapend
+@snap[mt20 text-center fragment]
+Not just today or yesterday, but ever since software programs got developed.
+@snapend
+
++++
+
+Fix the bugs
+============
+
+@snap[mt20 size-90 text-center fragment]
+To fix the bugs, first find the bugs.
+@snapend
+
+@snap[mt20 size-90 text-center fragment]
+How to find the bugs ?
+@snapend
+
+<table class="mt30  text-center size-80">
+  <tr>
+    <td class="fragment"> Unit testing </td> <td class="fragment"> System testing </td>
+    <td class="fragment"> System testing </td> <td class="fragment"> Regression testing </td>
+   </tr>
+</table>
+
+@snap[mt20 size-90 text-center fragment]
+Most industry have Quality Control,
+@snapend
+
+@snap[mt20 size-90 text-center fragment]
+Software industry do @color[red](Quality Engineering) <br/>
+Finding bugs is an engineering stream.
+@snapend
+
+@snap[mt20 size-90 text-center text-blue fragment]
+Is there a better way ?  @css[text-green fragment](Type theory)
+@snapend
+
++++
+
+Finger typing
+=============
+
+@snap[mt20 size-90 text-center fragment]
+Until type-theory evolved into what it is today, languages that call
+themself as strongly-typed mostly did finger typing.
+@snapend
+
+@snap[mt20 size-90 text-center fragment]
+That is,
+@snapend
+
+@snap[mt20 size-90 text-center fragment]
+Programmers must declare the type of variable/value, before
+applying specific operations on them.
+@snapend
+
++++
+
+Type theory
+===========
+
+@ul[mt20 size-90]
+- Forging a type means, @color[blue](clear abstraction of values and its behaviours).
+- When behaviour of programs interact, their @color[blue](types should be aligned).
+- When types are aligned, @color[blue](functions are composable).
+- With composable functions, @color[blue](complexity can be tamed).
+@ulend
+
+@snap[mt20 size-90 fragment]
+In Rust,
+@css[text-green fragment](Lifetime,)
+@css[text-green fragment](Ownership,)
+@css[text-green fragment](Mutability)
+@css[fragment](all come together with its type-system.)
+@snapend
 
 ---
 
@@ -216,16 +548,15 @@ In case of Rust some of the capabilities are work in progress, but are very much
 Rust and C
 ==========
 
-Rust happens to carry forward all the goodness of C and avoiding,
-as much as possible, its pitfalls, corner-cases and legacy issues.
-Unlike C++'s large collection of features that stick out, Rust maintains
-the C like philosophy through and through, to enable programmers with
-small, but powerful set of features that can inter-play with each
-other seamlessly.
+@snap[mt20 size-80 fragment]
+Rust maintains the C like philosophy through and through, to enable
+programmers with small, but powerful set of features that can inter-play
+with each other seamlessly.
+@snapend
 
 <style> table th, table td { text-align: center !important; } </style>
 
-<table class="south-west">
+<table class="size-60 south-west">
   <tr class="fragment">
     <th style="color: blue;"> Feature </th> <th> C </th> <th> Rust </th>
   </tr>
@@ -255,7 +586,7 @@ other seamlessly.
   </tr>
 </table>
 
-<table class="south-east">
+<table class="size-60 south-east">
   <tr class="fragment">
     <th style="color: blue;"> Feature </th> <th> C </th> <th> Rust </th>
   </tr>
@@ -284,16 +615,3 @@ other seamlessly.
     <td> Closures </td> <td class="text-red"> N </td> <td class="text-blue"> Y </td>
   </tr>
 </table>
-
----
-
-Rust language
-=============
-
-- Gives full control over memory and execution behaviour, similar to C/C++
-- No Garbage-Collection, but guaranteed safety.
-- No dangling pointers, no double free.
-- Fearless concurrency, no data-races.
-
----
-
