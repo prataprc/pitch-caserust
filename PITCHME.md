@@ -1,4 +1,4 @@
-@title[Rust introduction]
+@title[A case for rust]
 
 @snap[midpoint text-center slide1 span-60]
 <h1>A case for Rust</h1>
@@ -186,8 +186,8 @@ Safe programs
 =============
 
 @snap[size-70 fragment]
-When programmers want total control on the memory layout and program
-execution, sometimes they can shoot themself on their foot.
+When programmers want total control on program execution and its
+memory layout, they could shoot themself on their foot.
 @snapend
 
 <table class="mt30 size-60">
@@ -448,7 +448,7 @@ How to find the bugs ?
 
 <table class="mt30  text-center size-80">
   <tr>
-    <td class="fragment"> Unit testing </td> <td class="fragment"> System testing </td>
+    <td class="fragment"> Unit testing </td> <td class="fragment"> Functional testing </td>
     <td class="fragment"> System testing </td> <td class="fragment"> Regression testing </td>
    </tr>
 </table>
@@ -505,10 +505,183 @@ In Rust,
 @css[fragment](all come together with its type-system.)
 @snapend
 
++++
+
+<!-- .slide: class="size-90" -->
+
+Surprise 1: Sorting NaN
+=======================
+
+As per the floating point spec, NaN and Inf are allowed. Now let us try
+to sort a list of floating point numbers, intermixed with NaN.
+
+In python
+
+```python
+>>> sorted([3, 4, float('NaN'), 1, 2])
+[3, 4, nan, 1, 2]
+>>> sorted([3,4,1,2])
+[1, 2, 3, 4]
+```
+
+@snap[mt20 fragment]
+Rust,
+@css[fragment](don't allow sorting floating point numbers !! It simply doesn’t define @color[blue](Ord) trait for floats.)
+@snapend
+
 ---
 
 Expressive
 ==========
+
+@snap[mt20 size-90 text-center fragment]
+Computers communicate in @color[gray](1s) and @color[gray](0s).
+@snapend
+@snap[size-90 text-center fragment]
+Humans communicate with @color[gray](symbols) and @color[gray](syllables).
+@snapend
+
+@snap[mt20 size-90 text-center fragment]
+A program, first and foremost, is used as a record
+to communicate with other programmers and most often
+with its author. @css[fragment](Only when compiled, to 1s and 0s, computers can understand the program.)
+@snapend
+
+@snap[mt20 size-90 text-center fragment]
+Midway between 1s/0s and symbols/syllables ?
+@snapend
+
+<table class="mt20">
+  <tr>
+	<td class="fragment"> Context Free Grammar </td>
+	<td class="fragment"> keywords, identifiers and comments </td>
+	<td class="fragment"> domain specific syntax </td>
+  </tr>
+</table>
+
++++
+
+Example: Ruby Vs Rust
+========================
+
+<h3 class="size-90 text-center">Ruby</h3>
+
+```ruby
+irb(main):002:0> Time.now - 2.days
+=> 2009-12-26 09:57:02 -0800
+irb(main):003:0> 2.days.ago
+=> 2009-12-26 09:57:04 -0800
+```
+
+----------
+
+<h3 class="size-90 text-center">Rust</h3>
+
+```rust
+fn main() {
+  let time = Time::now();
+  println!("{:?}", time);
+  println!("{:?}", 2.days().from_now());
+  println!("{:?}", 2.weeks().from_now());
+  println!("{:?}", 2.months().from_now());
+  println!("{:?}", 2.years().from_now());
+}
+```
+
++++
+
+Example: Scala Vs Rust
+======================
+
+Incrementing every number in a array/list by 5.
+
+<h3 class="size-90 text-center">Scala</h3>
+
+```scala
+val anotherList = someList.map(x => x + 5)
+```
+
+--------------
+
+<h3 class="size-90 text-center">Ruby</h3>
+
+```rust
+let another: Vec<u64> = some_vec.iter().map(|x|x + 5).collect();
+```
+
++++
+
+@title[Gets better]
+
+@snap[midpoint]
+<h1> It gets better </h1>
+@snapend
+
++++
+
+Domain specific: LALR
+=====================
+
+Can a parser get more clear and concise that this ?
+
+```bnf
+csv      : csv-line
+         | csv-line '\n'
+         | csv-line '\n' csv-line.
+csv-line : value
+         | csv-line ',' value.
+value    : INT_LITERAL.
+```
+
+Above is an example for parsing Comma separated numbers using LALR grammar.
+A domain specific language to generate parsers.
+
++++
+
+<!-- .slide: class="nom-csv" -->
+
+Domain specific: Rust
+=====================
+
+@snap[mt20 size-60]
+Same parser in rust, without compromising on performance !! Domain specific macros ..
+@snapend
+
+```rust
+named!(comma(NS)   -> NS, ws!(tag!(",")));
+named!(newline(NS) -> NS, ws!(tag!("\n")));
+named!(value(NS)   -> isize,
+    flat_map!(ws!(re_find!(r#"^[+-]?\d+"#)), parse_to!(isize))
+);
+named!(commavalue(NS) -> isize,
+    do_parse!(
+             comma >>
+        val: value >>
+        (val)
+    )
+);
+named!(line(NS) -> (isize, Vec<isize>),
+	do_parse!(
+		 item: value              >>
+		items: many0!(commavalue) >>
+		(item, items)
+	),
+);
+named!(nextline(NS) -> (isize, Vec<isize>),
+    do_parse!(
+             newline >>
+        val: value     >>
+        (val)
+    )
+);
+named!(lines(NS) -> Vec<(isize, Vec<isize>)>,
+	do_parse!(
+		 item: line              >>
+		items: many0!(nextline) >>
+		(item, items)
+	),
+);
+```
 
 ---
 

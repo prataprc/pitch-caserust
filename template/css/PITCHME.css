@@ -353,7 +353,7 @@ code.hljs {
 .text-left {
     text-align: left !important;
 }
-div.text-center {
+div.text-center, ul.text-center, h3.text-center {
     text-align: center !important;
 }
 .text-blue {
@@ -379,17 +379,20 @@ div.why-program-2 {
     bottom: 2em;
     text-align: center;
 }
-div.size-90, ul.size-90, table.size-90 {
+section.size-90, div.size-90, ul.size-90, table.size-90, h3.size-90 {
     font-size: 90% !important;
 }
-div.size-80, ul.size-80, table.size-80 {
+section.size-80, div.size-80, ul.size-80, table.size-80, h3.size-80 {
     font-size: 80% !important;
 }
-div.size-70, table.size-70 {
+section.size-70, div.size-70, table.size-70, h3.size-70 {
     font-size: 70% !important;
 }
-div.size-60, table.size-60 {
+section.size-60, div.size-60, table.size-60, h3.size-60 {
     font-size: 60% !important;
+}
+section.size-30, div.size-30, table.size-30, h3.size-30 {
+    font-size: 30% !important;
 }
 div.joker {
     top: 3em;
@@ -410,4 +413,11 @@ ul.crash-free {
     top: 18em;
     text-align: left;
     font-size: 60% !important;
+}
+ul.style-none li {
+    list-style-type: none;
+}
+section.nom-csv pre {
+    margin-top: 20px;
+    font-size: 30% !important;
 }
