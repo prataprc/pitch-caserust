@@ -177,7 +177,7 @@ Garbage collector
 
 @ul[crash-free]
 - @color[blue](C) can give programmer total freedom, free as in "you can shoot yourself all you want" free.
-- On the other end - languages like @color[blue](Python Java Javascript) has garbage collection for safety. And sadly, the garbage collector doesn't know that he is a bad influence.
+- On the other end - languages like @color[blue](Python Java Javascript) has garbage collector for safety. And sadly, the garbage collector doesn't know that he is a bad influence.
 @ulend
 
 +++
@@ -502,7 +502,7 @@ In Rust,
 @css[text-green fragment](Lifetime,)
 @css[text-green fragment](Ownership,)
 @css[text-green fragment](Mutability)
-@css[fragment](all come together with its type-system.)
+@css[fragment](all come together with its strong type-system.)
 @snapend
 
 +++
@@ -603,7 +603,7 @@ val anotherList = someList.map(x => x + 5)
 
 --------------
 
-<h3 class="size-90 text-center">Ruby</h3>
+<h3 class="size-90 text-center">Rust</h3>
 
 ```rust
 let another: Vec<u64> = some_vec.iter().map(|x|x + 5).collect();
@@ -633,8 +633,8 @@ csv-line : value
 value    : INT_LITERAL.
 ```
 
-Above is an example for parsing Comma separated numbers using LALR grammar.
-A domain specific language to generate parsers.
+Above is an example for parsing Comma separated numbers using LALR grammar -
+a domain specific language to generate parsers.
 
 +++
 
@@ -685,36 +685,290 @@ named!(lines(NS) -> Vec<(isize, Vec<isize>)>,
 
 ---
 
+<!-- .slide: class="size-80" -->
+
 Predictable
 ===========
 
+@snap[fragment]
+Programs that control:
+@snapend
+
+@ul[mt20]
+- Engines and brakes in a car.
+- Lifts and security systems in a building.
+- Assembly line of factory.
+- Robotics.
+- Medical instruments, surgical tools.
+- And much more.
+@ulend
+
+@snap[mt20 fragment]
+There are areas in technology where @color[blue](predictable response time),
+aka @color[blue](real-time systems), is as important as the correctness of
+computer programs.
+@snapend
+
++++
+
+Achilles heal
+=============
+
+@css[fragment](No matter how careful we are,)
+@css[fragment](there are some pitfalls in languages,)
+@css[fragment](that ends up as the achilles heal for real-time systems.)
+@css[fragment](Like,)
+
+@ul[mt20]
+- Garbage collection.
+- Abstraction overhead.
+- Runtime scheduler.
+@ulend
+
++++
+
+<!-- .slide: class="size-90" -->
+
+Garbage collection
+==================
+
+@snap[mt20 fragment]
+Garbage collectors are independant threads that wake up periodically,
+or when there is memory pressure, to clean up dangling memory blocks
+and give it back to free-pool and/or to the operating-system.
+@snapend
+
+@snap[mt20 fragment]
+Garbage collectors not only take up CPU and cause
+@color[blue](memory contention), in the worst case they introduce
+@color[blue](stop-the-world) scenarios that shall block all the
+threads in a program for as less as few micro-seconds to as much as
+@color[red](several seconds).
+@snapend
+
+@snap[mt20 fragment]
+Rust - No garbage collection
+@snapend
+
++++
+
+Abstraction overhead
+====================
+
+@snap[size-80 java-abstraction fragment]
+@css[size-60](Courtesy: image used from a presentation by Aaron Turon.)
+![java](assets/java-abstraction.png)
+The cost of abstraction in Java.
+@snapend
+
+@snap[mt20 size-80 fragment]
+Rust - uses zero-cost-abstraction model, like mono-morphisation.
+The only abstraction that happens behind a pointer is trait-object.
+@snapend
+
++++
+
+<!-- .slide: class="size-80" -->
+
+Runtime scheduler
+=================
+
+Languages like Erlang, Golang has increased the popularity of
+concurrent programming. As a side effect erlang-programs and
+golang-programs introduce a @color[blue](scheduler as part of the running process),
+to handle @color[blue](green-threads).
+
+An example side-effect:
+
+```go
+func main() {
+	runtime.GOMAXPROCS(1)
+	go func() {
+		for true {
+			// noop
+		}
+	}()
+
+	for true {
+		fmt.Printf("Hello world!\n")
+		time.Sleep(1 * time.Millisecond)
+	}
+}
+```
+
 ---
+
+<!-- .slide: class="size-80" -->
 
 Productive
 ==========
 
+@snap[fragment]
+With all things being equal, how productivity differ between languages ?
+@css[fragment](As it happens, most of the productivity comes from features like,)
+@snapend
+
+@ul[mt20]
+* Garbage collection, @css[text-red](not suitable for real-time systems.)
+* Duck typing, @css[text-red](performance is bad.)
+* Read-Evaluate-Print-Loop, @css[text-red](not for systems programming.)
+@ulend
+
+@snap[mt20 fragment]
+Rust increases productivity through,
+@snapend
+@ul
+- Enumerated types.
+- Type parameters.
+- Powerful macro system.
+@ulend
+@snap[fragment text-green]
+Without compromising on program correctness and performance
+@snapend
+
++++
+
+C: Is the string palindrome
+===========================
+
+```c
+void isPalindrome(char str[])
+{
+    int l = 0;
+    int h = strlen(str) - 1;
+
+    while (h > l)
+    {
+        if (str[l++] != str[h--])
+        {
+            printf("%s is Not Palindrome", str);
+            return;
+        }
+    }
+    printf("%s is palindrome", str);
+}
+```
+
++++
+
+C: Is array of integers palindrome
+==================================
+
+```c
+int palindrome(int arr[], int begin, int end)
+{
+    if (begin >= end) {
+        return 1;
+    }
+    if (arr[begin] == arr[end]) {
+        return palindrome(arr, begin + 1, end - 1);
+    }
+    else {
+        return 0;
+    }
+}
+```
+
++++
+
+C: Is array of floats palindrome
+================================
+
+```c
+int palindrome(float arr[], int begin, int end)
+{
+    if (begin >= end) {
+        return 1;
+    }
+    if (arr[begin] == arr[end]) {
+        return palindrome(arr, begin + 1, end - 1);
+    }
+    else {
+        return 0;
+    }
+}
+```
+
++++
+
+<!-- .slide: class="size-80" -->
+
+Rust: Palindrome
+================
+
+```rust
+pub fn is_palindrome<T: Eq>(x: &[T]) -> bool {
+    let i = x.len()/2;
+    (&x[..i]).iter().zip((&x[i..]).iter().rev()).all(|(a,b)| a == b)
+}
+```
+
+@snap[mt20 fragment]
+Irrespective of whether we are operating on chars, numbers, floats or
+any other data-type, as long as the type has @color[blue](Eq) trait,
+we can solve the problem of palindrom, @css[fragment](short and sweet.)
+@snapend
+
 ---
 
-Why Rust ?
-==========
+<!-- .slide: class="size-80" -->
+
+Feature comparison
+==================
+
+<br/>
 
 <table>
-<tr><th> Doing what    </th> <th> Rust     </th> <th> C        </th> <th> Python   </th> <th> Java     </th> <th> Golang   </th> <th> C#       </th> <th> Swift    </th> <th> js       </th> </tr>
-<tr><td> Boot loader   </td> <td> &#10004; </td> <td> &#10004; </td> <td>          </td> <td>          </td> <td>          </td> <td>          </td> <td>          </td> <td>          </td> </tr>
-<tr><td> Firmware      </td> <td> &#10004; </td> <td> &#10004; </td> <td>          </td> <td>          </td> <td>          </td> <td>          </td> <td>          </td> <td>          </td> </tr>
-<tr><td> Kernel        </td> <td> &#10004; </td> <td> &#10004; </td> <td>          </td> <td>          </td> <td>          </td> <td>          </td> <td>          </td> <td>          </td> </tr>
-<tr><td> Script        </td> <td> &#10004; </td> <td>          </td> <td> &#10004; </td> <td>          </td> <td> &#10004; </td> <td> &#10004; </td> <td>          </td> <td> &#10004; </td> </tr>
-<tr><td> Middleware    </td> <td> &#10004; </td> <td> &#10004; </td> <td> &#10004; </td> <td> &#10004; </td> <td> &#10004; </td> <td> &#10004; </td> <td> &#10004; </td> <td> &#10004; </td> </tr>
-<tr><td> Algorithms    </td> <td> &#10004; </td> <td> &#10004; </td> <td>          </td> <td> &#10004; </td> <td> &#10004; </td> <td> &#10004; </td> <td> &#10004; </td> <td> &#10004; </td> </tr>
-<tr><td> Database      </td> <td> &#10004; </td> <td> &#10004; </td> <td>          </td> <td> &#10004; </td> <td> &#10004; </td> <td>          </td> <td> &#10004; </td> <td>          </td> </tr>
-<tr><td> Web-stack     </td> <td> &#10004; </td> <td> &#10004; </td> <td> &#10004; </td> <td> &#10004; </td> <td> &#10004; </td> <td> &#10004; </td> <td> &#10004; </td> <td> &#10004; </td> </tr>
-<tr><td> Browser       </td> <td> &#10004; </td> <td>          </td> <td>          </td> <td>          </td> <td>          </td> <td>          </td> <td>          </td> <td> &#10004; </td> </tr>
-<tr><td> Windows       </td> <td> &#10004; </td> <td> &#10004; </td> <td> &#10004; </td> <td> &#10004; </td> <td> &#10004; </td> <td> &#10004; </td> <td>          </td> <td> &#10004; </td> </tr>
-<tr><td> OSX           </td> <td> &#10004; </td> <td> &#10004; </td> <td> &#10004; </td> <td> &#10004; </td> <td> &#10004; </td> <td>          </td> <td> &#10004; </td> <td> &#10004; </td> </tr>
-<tr><td> Android / iOS </td> <td> &#10004; </td> <td>          </td> <td>          </td> <td> &#10004; </td> <td> &#10004; </td> <td>          </td> <td> &#10004; </td> <td>          </td> </tr>
+  <tr>
+    <th>Language </th> <th>Safe</th> <th>Performance </th> <th>Strongtype </th> <th>Expressive </th> <th>Predictable </th> <th>Productive </th>
+  </tr>
+  <tr class="fragment">
+    <td> C </td> <th> </th> <th> &#10004; </th> <th> </th> <th> </th> <th> &#10004; </th> <th> </th>
+  </tr>
+  <tr class="fragment">
+    <td> C++ </td> <th> </th> <th> &#10004; </th> <th> &#10004; </th> <th> </th> <th> &#10004; </th> <th> &#10004; </th>
+  </tr>
+  <tr class="fragment">
+    <td> C# </td> <th> &#10004; </th> <th>  </th> <th> &#10004; </th> <th> &#10004; </th> <th> </th> <th> &#10004; </th>
+  </tr>
+  <tr class="fragment">
+    <td> Go </td> <th> &#10004; </th> <th> </th> <th> </th> <th> </th> <th> </th> <th> &#10004; </th>
+  </tr>
+  <tr class="fragment">
+    <td> Rust </td> <th> &#10004; </th> <th> &#10004; </th> <th> &#10004; </th> <th> &#10004; </th> <th> &#10004; </th> <th> &#10004; </th>
+  </tr>
+  <tr class="fragment">
+    <td> Java </td> <th> &#10004; </th> <th> </th> <th> &#10004; </th> <th> &#10004; </th> <th> </th> <th> &#10004; </th>
+  </tr>
+  <tr class="fragment">
+    <td> Haskell </td> <th> &#10004; </th> <th> </th> <th> &#10004; </th> <th> &#10004; </th> <th> </th> <th> &#10004; </th>
+  </tr>
 </table>
 
-In case of Rust some of the capabilities are work in progress, but are very much possible.
+---
+
+What we can do with Rust ?
+==========================
+
+<table class="size-50">
+<tr><th> Doing what    </th> <th> Rust     </th> <th> C        </th> <th> Python   </th> <th> Java     </th> <th> Golang   </th> <th> C#       </th> <th> Swift    </th> <th> js       </th> </tr>
+<tr class="fragment"><td> Boot loader   </td> <td> &#10004; </td> <td> &#10004; </td> <td>          </td> <td>          </td> <td>          </td> <td>          </td> <td>          </td> <td>          </td> </tr>
+<tr class="fragment"><td> Firmware      </td> <td> &#10004; </td> <td> &#10004; </td> <td>          </td> <td>          </td> <td>          </td> <td>          </td> <td>          </td> <td>          </td> </tr>
+<tr class="fragment"><td> Kernel        </td> <td> &#10004; </td> <td> &#10004; </td> <td>          </td> <td>          </td> <td>          </td> <td>          </td> <td>          </td> <td>          </td> </tr>
+<tr class="fragment"><td> Script        </td> <td> &#10004; </td> <td>          </td> <td> &#10004; </td> <td>          </td> <td> &#10004; </td> <td> &#10004; </td> <td>          </td> <td> &#10004; </td> </tr>
+<tr class="fragment"><td> Middleware    </td> <td> &#10004; </td> <td> &#10004; </td> <td> &#10004; </td> <td> &#10004; </td> <td> &#10004; </td> <td> &#10004; </td> <td> &#10004; </td> <td> &#10004; </td> </tr>
+<tr class="fragment"><td> Algorithms    </td> <td> &#10004; </td> <td> &#10004; </td> <td>          </td> <td> &#10004; </td> <td> &#10004; </td> <td> &#10004; </td> <td> &#10004; </td> <td> &#10004; </td> </tr>
+<tr class="fragment"><td> Database      </td> <td> &#10004; </td> <td> &#10004; </td> <td>          </td> <td> &#10004; </td> <td> &#10004; </td> <td>          </td> <td> &#10004; </td> <td>          </td> </tr>
+<tr class="fragment"><td> Web-stack     </td> <td> &#10004; </td> <td> &#10004; </td> <td> &#10004; </td> <td> &#10004; </td> <td> &#10004; </td> <td> &#10004; </td> <td> &#10004; </td> <td> &#10004; </td> </tr>
+<tr class="fragment"><td> Browser       </td> <td> &#10004; </td> <td>          </td> <td>          </td> <td>          </td> <td>          </td> <td>          </td> <td>          </td> <td> &#10004; </td> </tr>
+<tr class="fragment"><td> Windows       </td> <td> &#10004; </td> <td> &#10004; </td> <td> &#10004; </td> <td> &#10004; </td> <td> &#10004; </td> <td> &#10004; </td> <td>          </td> <td> &#10004; </td> </tr>
+<tr class="fragment"><td> OSX           </td> <td> &#10004; </td> <td> &#10004; </td> <td> &#10004; </td> <td> &#10004; </td> <td> &#10004; </td> <td>          </td> <td> &#10004; </td> <td> &#10004; </td> </tr>
+<tr class="fragment"><td> Android / iOS </td> <td> &#10004; </td> <td>          </td> <td>          </td> <td> &#10004; </td> <td> &#10004; </td> <td>          </td> <td> &#10004; </td> <td>          </td> </tr>
+</table>
+
+@snap[size-50 text-gray south fragment]
+Some are work in progress, but are encouraging.
+@snapend
 
 ---
 
@@ -782,9 +1036,15 @@ with each other seamlessly.
     <td> Build and packaging </td> <td class="text-red"> N </td> <td class="text-blue"> Y </td>
   </tr>
   <tr class="fragment">
-    <td> Macro </td> <td class="text-red"> N </td> <td class="text-blue"> Y </td>
+    <td> Macros </td> <td class="text-red"> N </td> <td class="text-blue"> Y </td>
   </tr>
   <tr class="fragment">
     <td> Closures </td> <td class="text-red"> N </td> <td class="text-blue"> Y </td>
   </tr>
 </table>
+
+---
+
+@snap[midpoint]
+<h1>Thank you</h1>
+@snapend

@@ -385,13 +385,16 @@ section.size-90, div.size-90, ul.size-90, table.size-90, h3.size-90 {
 section.size-80, div.size-80, ul.size-80, table.size-80, h3.size-80 {
     font-size: 80% !important;
 }
-section.size-70, div.size-70, table.size-70, h3.size-70 {
+section.size-70, div.size-70, table.size-70, h3.size-70, span.size-70  {
     font-size: 70% !important;
 }
-section.size-60, div.size-60, table.size-60, h3.size-60 {
+section.size-60, div.size-60, table.size-60, h3.size-60, span.size-60  {
     font-size: 60% !important;
 }
-section.size-30, div.size-30, table.size-30, h3.size-30 {
+section.size-50, div.size-50, table.size-50, h3.size-50, span.size-50  {
+    font-size: 50% !important;
+}
+section.size-30, div.size-30, table.size-30, h3.size-30, span.size-30 {
     font-size: 30% !important;
 }
 div.joker {
@@ -420,4 +423,14 @@ ul.style-none li {
 section.nom-csv pre {
     margin-top: 20px;
     font-size: 30% !important;
+}
+div.java-abstraction {
+    height: 50% !important;
+    width: 80% !important;
+}
+div.java-abstraction img {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 90%;
 }
