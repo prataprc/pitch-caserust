@@ -811,7 +811,6 @@ With all things being equal, how productivity differ between languages ?
 @ul[mt20]
 * Garbage collection, @css[text-red](not suitable for real-time systems.)
 * Duck typing, @css[text-red](performance is bad.)
-* Read-Evaluate-Print-Loop, @css[text-red](not for systems programming.)
 @ulend
 
 @snap[mt20 fragment]
@@ -822,7 +821,7 @@ Rust increases productivity through,
 - Type parameters.
 - Powerful macro system.
 @ulend
-@snap[fragment text-green]
+@snap[mt20 fragment text-green]
 Without compromising on program correctness and performance
 @snapend
 
