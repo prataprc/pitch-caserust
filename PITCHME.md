@@ -138,24 +138,6 @@ for a good language.
 
 +++
 
-The programer
-=============
-
-Being a programer, becoming a programer:
-
-@ul
-- Ripping apart @color[blue](problems), its related problems and problem within problems.
-- Dividing them into @color[blue](smallest possible pieces).
-- Until nothing is left but the @color[blue](atomic parts) of each one of them, @color[fragment](all of them).
-- Repeat this again and again.
-@ulend
-
-@snap[mt20 text-gray text-center fragment]
-Good luck, let us go back !
-@snapend
-
----
-
 Crash free
 ==========
 
@@ -556,6 +538,7 @@ Midway between 1s/0s and symbols/syllables ?
 	<td class="fragment"> Context Free Grammar </td>
 	<td class="fragment"> keywords, identifiers and comments </td>
 	<td class="fragment"> domain specific syntax </td>
+	<td class="fragment"> type theory </td>
   </tr>
 </table>
 
@@ -700,7 +683,7 @@ Programs that control:
 - Assembly line of factory.
 - Robotics.
 - Medical instruments, surgical tools.
-- And much more.
+- And much more ...
 @ulend
 
 @snap[mt20 fragment]
@@ -827,8 +810,8 @@ Without compromising on program correctness and performance
 
 +++
 
-C: Is the string palindrome
-===========================
+C: Palindrom strings
+====================
 
 ```c
 void isPalindrome(char str[])
@@ -850,8 +833,8 @@ void isPalindrome(char str[])
 
 +++
 
-C: Is array of integers palindrome
-==================================
+C: Palindrom integers
+=====================
 
 ```c
 int palindrome(int arr[], int begin, int end)
@@ -870,8 +853,8 @@ int palindrome(int arr[], int begin, int end)
 
 +++
 
-C: Is array of floats palindrome
-================================
+C: Palindrome floats
+====================
 
 ```c
 int palindrome(float arr[], int begin, int end)
@@ -933,7 +916,7 @@ Feature comparison
   <tr class="fragment">
     <td> Go </td> <th> &#10004; </th> <th> </th> <th> </th> <th> </th> <th> </th> <th> &#10004; </th>
   </tr>
-  <tr class="fragment">
+  <tr class="fragment" style="background: #f0f0f0;">
     <td> Rust </td> <th> &#10004; </th> <th> &#10004; </th> <th> &#10004; </th> <th> &#10004; </th> <th> &#10004; </th> <th> &#10004; </th>
   </tr>
   <tr class="fragment">
@@ -959,14 +942,14 @@ What we can do with Rust ?
 <tr class="fragment"><td> Algorithms    </td> <td> &#10004; </td> <td> &#10004; </td> <td>          </td> <td> &#10004; </td> <td> &#10004; </td> <td> &#10004; </td> <td> &#10004; </td> <td> &#10004; </td> </tr>
 <tr class="fragment"><td> Database      </td> <td> &#10004; </td> <td> &#10004; </td> <td>          </td> <td> &#10004; </td> <td> &#10004; </td> <td>          </td> <td> &#10004; </td> <td>          </td> </tr>
 <tr class="fragment"><td> Web-stack     </td> <td> &#10004; </td> <td> &#10004; </td> <td> &#10004; </td> <td> &#10004; </td> <td> &#10004; </td> <td> &#10004; </td> <td> &#10004; </td> <td> &#10004; </td> </tr>
-<tr class="fragment"><td> Browser       </td> <td> &#10004; </td> <td>          </td> <td>          </td> <td>          </td> <td>          </td> <td>          </td> <td>          </td> <td> &#10004; </td> </tr>
+<tr class="fragment"><td> Browser <span style="color: gray;">\*</span> </td> <td> &#10004; </td> <td>          </td> <td>          </td> <td>          </td> <td>          </td> <td>          </td> <td>          </td> <td> &#10004; </td> </tr>
 <tr class="fragment"><td> Windows       </td> <td> &#10004; </td> <td> &#10004; </td> <td> &#10004; </td> <td> &#10004; </td> <td> &#10004; </td> <td> &#10004; </td> <td>          </td> <td> &#10004; </td> </tr>
 <tr class="fragment"><td> OSX           </td> <td> &#10004; </td> <td> &#10004; </td> <td> &#10004; </td> <td> &#10004; </td> <td> &#10004; </td> <td>          </td> <td> &#10004; </td> <td> &#10004; </td> </tr>
-<tr class="fragment"><td> Android / iOS </td> <td> &#10004; </td> <td>          </td> <td>          </td> <td> &#10004; </td> <td> &#10004; </td> <td>          </td> <td> &#10004; </td> <td>          </td> </tr>
+<tr class="fragment"><td> Android / iOS <span style="color: gray;">\*</span> </td> <td> &#10004; </td> <td>          </td> <td>          </td> <td> &#10004; </td> <td> &#10004; </td> <td>          </td> <td> &#10004; </td> <td>          </td> </tr>
 </table>
 
 @snap[size-50 text-gray south fragment]
-Some are work in progress, but are encouraging.
+<span style="color: gray;">\*</span> encouraging work in progress
 @snapend
 
 ---
