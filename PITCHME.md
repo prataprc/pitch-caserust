@@ -136,7 +136,7 @@ for a good language.
 - @color[blue](Productive), from prototype to production before the attention is lost.
 @ulend
 
-+++
+---
 
 Crash free
 ==========
