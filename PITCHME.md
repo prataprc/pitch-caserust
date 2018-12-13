@@ -2,7 +2,9 @@
 
 @snap[midpoint text-center slide1 span-60]
 <h1>A case for Rust</h1>
-From boot-loaders to browser applications.
+Boot-loaders
+<br/>to
+<br/>Browser-applications.
 @snapend
 
 
@@ -167,9 +169,8 @@ Garbage collector
 Safe programs
 =============
 
-@snap[size-70 fragment]
-When programmers want total control on program execution and its
-memory layout, they could shoot themself on their foot.
+@snap[mt30 fragment text-center]
+With @color[red](great power) comes @color[red](great mistakes).
 @snapend
 
 <table class="mt30 size-60">
@@ -190,10 +191,8 @@ memory layout, they could shoot themself on their foot.
     </tr>
 </table>
 
-@snap[mt20 size-70 fragment]
-In Rust, programmers can have total control on the memory layout and
-execution behaviour without garbage collection. Don't have to bother with
-@color[blue](alloc) and @color[blue](free).
+@snap[mt30 text-center fragment]
+In Rust, enjoy the raw performance without alloc and free.
 @snapend
 
 ---
@@ -202,9 +201,14 @@ Performance
 ===========
 
 @snap[mt20 size-80 fragment]
-With more and more transistors getting packed in a micro-chip, and ever
-increasing GigaBytes of Memory, response time of 30ms is barely noticed
-against response time of 10ms.
+With millions of transistors packed in a micro-chip
+@snapend
+@snap[size-80 fragment]
+Ever increasing GigaBytes of Memory
+@snapend
+
+@snap[size-80 fragment]
+Response time of 30ms is barely noticed over response time of 10ms.
 @snapend
 
 @snap[mt20 size-80 fragment]
@@ -212,18 +216,21 @@ But then -
 @snapend
 
 @snap[mt20 size-80 fragment]
-Advent of wireless networks and lithium batteries have added a new
+Wireless networks and lithium batteries added a new
 dimension to computing - @css[text-blue fragment](mobility).
 @snapend
 
 @snap[mt20 size-80 fragment]
 With micro-chips having -
-@ul
-- 1/3rd of the transistors.
-- running at 1/3rd clock rate.
-- 1/3rd of the memory
-- can last @color[blue](5-10 times longer) with same battery capacity.
+@snapend
+@ul[size-80]
+* 1/3rd of the transistors.
+* running at 1/3rd clock rate.
+* 1/3rd of the memory
 @ulend
+
+@snap[size-80 fragment]
+Can last @color[blue](5-10 times longer) with same battery capacity.
 @snapend
 
 +++
@@ -394,7 +401,7 @@ Strong type system
 ==================
 
 @snap[mt20 size-80 fragment]
-Ask a seasoned programmer, where the longest hours are spent ...
+Ask a programmer, where the longest hours are spent ...
 @snapend
 
 <table class="mt30 size-80">
@@ -602,6 +609,17 @@ let another: Vec<u64> = some_vec.iter().map(|x|x + 5).collect();
 
 +++
 
+A simple web-server
+===================
+
+![WEBSERVER](assets/rocket-web.png)
+
+@snap[text-center]
+A simple web server to welcome its visitor.
+@snapend
+
++++
+
 Domain specific: LALR
 =====================
 
@@ -683,12 +701,11 @@ Programs that control:
 - Assembly line of factory.
 - Robotics.
 - Medical instruments, surgical tools.
-- And much more ...
 @ulend
 
 @snap[mt20 fragment]
-There are areas in technology where @color[blue](predictable response time),
-aka @color[blue](real-time systems), is as important as the correctness of
+Sometimes @color[blue](predictable response time), aka
+@color[blue](real-time systems), is as important as the correctness of
 computer programs.
 @snapend
 

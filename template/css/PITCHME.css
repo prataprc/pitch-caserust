@@ -298,7 +298,7 @@
   font-size: 50% !important;
 }
 
-/* pitch-rustlang */
+/* pitch-caserust */
 .reveal .slides {
     text-align: left !important;
 }
@@ -324,9 +324,9 @@
 .text-crimson {
     color: crimson !important;
 }
-.author-box {
-    font-size: 50% !important;
-    text-align: left;
+div.author-box {
+    font-size: 70% !important;
+    text-align: left !important;
 }
 .reveal h1, .reveal h2, .reveal h3, .reveal h4, .reveal h5, .reveal h6 {
     text-transform: none !important;
@@ -402,7 +402,7 @@ div.joker {
 }
 div.joker-line {
     top: 3.75em;
-    left: 7.2em;
+    left: 8em;
 }
 div.batman {
     top: 2em;
