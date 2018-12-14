@@ -704,9 +704,8 @@ Programs that control:
 @ulend
 
 @snap[mt20 fragment]
-Sometimes @color[blue](predictable response time), aka
-@color[blue](real-time systems), is as important as the correctness of
-computer programs.
+Sometimes @color[blue](predictable response time),
+is as important as the correctness of computer programs.
 @snapend
 
 +++
