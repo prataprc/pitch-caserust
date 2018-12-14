@@ -91,7 +91,7 @@ The market for automating repeatitive jobs are no different.
 @snap[mt20 text-center fragment]
 Program automata are nuanced and when the demand for
 @color[gray](efficiency) and @color[gray](quality) is adequately pronounced,
-for a particular nuance
+for a particular automata
 @snapend
 
 @snap[mt20 text-blue text-center fragment]
@@ -160,7 +160,7 @@ Garbage collector
 @snapend
 
 @ul[crash-free]
-- @color[blue](C) can give programmer total freedom, free as in "you can shoot yourself all you want" free.
+- @color[blue](C) can give programmer total freedom, free as in @color[red](you can shoot yourself all you want) free.
 - On the other end - languages like @color[blue](Python Java Javascript) has garbage collector for safety. And sadly, the garbage collector doesn't know that he is a bad influence.
 @ulend
 
@@ -193,6 +193,7 @@ With @color[red](great power) comes @color[red](great mistakes).
 
 @snap[mt30 text-center fragment]
 In Rust, enjoy the raw performance without alloc and free.
+Delegate power to unsafe functions.
 @snapend
 
 ---
@@ -221,12 +222,12 @@ dimension to computing - @css[text-blue fragment](mobility).
 @snapend
 
 @snap[mt20 size-80 fragment]
-With micro-chips having -
+With micro-chips -
 @snapend
 @ul[size-80]
-* 1/3rd of the transistors.
-* running at 1/3rd clock rate.
-* 1/3rd of the memory
+* Having 1/3rd of the transistors.
+* With 1/3rd of the memory
+* Running at 1/3rd clock rate.
 @ulend
 
 @snap[size-80 fragment]
@@ -692,7 +693,7 @@ Predictable
 ===========
 
 @snap[fragment]
-Programs that control:
+Programs are used in :
 @snapend
 
 @ul[mt20]
@@ -1031,13 +1032,13 @@ with each other seamlessly.
     <td> Pattern matching </td> <td class="text-red"> N </td> <td class="text-blue"> Y </td>
   </tr>
   <tr class="fragment">
-    <td> Build and packaging </td> <td class="text-red"> N </td> <td class="text-blue"> Y </td>
-  </tr>
-  <tr class="fragment">
     <td> Macros </td> <td class="text-red"> N </td> <td class="text-blue"> Y </td>
   </tr>
   <tr class="fragment">
     <td> Closures </td> <td class="text-red"> N </td> <td class="text-blue"> Y </td>
+  </tr>
+  <tr class="fragment">
+    <td> Build and packaging </td> <td class="text-red"> N </td> <td class="text-blue"> Y </td>
   </tr>
 </table>
 
