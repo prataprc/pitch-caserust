@@ -20,7 +20,7 @@ Why language ?
 <br/>
 
 @snap[fragment text-center]
-@color[gray](A good carpenter is only as good as his tools.)
+@color[gray](A good carpenter is only as good as ones tools.)
 @snapend
 
 <br/>
@@ -90,7 +90,7 @@ The market for automating repeatitive jobs are no different.
 
 @snap[mt20 text-center fragment]
 Program automata are nuanced and when the demand for
-@color[gray](efficiency) and @color[gray](quality) is adequately pronounced,
+@color[gray](efficiency) and @color[gray](quality) is adequately pronounced
 for a particular automata
 @snapend
 
@@ -401,7 +401,7 @@ Courtesy: https://benchmarksgame-team.pages.debian.net/benchmarksgame
 Strong type system
 ==================
 
-@snap[mt20 size-80 fragment]
+@snap[mt20 size-80 text-center fragment]
 Ask a programmer, where the longest hours are spent ...
 @snapend
 
@@ -444,7 +444,7 @@ How to find the bugs ?
 </table>
 
 @snap[mt20 size-90 text-center fragment]
-Most industry have Quality Control,
+Most industry have Quality Control.
 @snapend
 
 @snap[mt20 size-90 text-center fragment]
@@ -705,7 +705,7 @@ Programs are used in :
 @ulend
 
 @snap[mt20 fragment]
-Sometimes @color[blue](predictable response time),
+Sometimes @color[blue](predictable response time)
 is as important as the correctness of computer programs.
 @snapend
 
