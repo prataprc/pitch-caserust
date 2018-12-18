@@ -434,3 +434,6 @@ div.java-abstraction img {
     margin-right: auto;
     width: 90%;
 }
+div.humble-dijkstra blockquote {
+    font-size: .75em !important;
+}

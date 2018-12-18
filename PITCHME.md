@@ -443,14 +443,10 @@ How to find the bugs ?
    </tr>
 </table>
 
-@snap[mt20 size-90 text-center fragment]
-Most industry have Quality Control.
-@snapend
 
-@snap[mt20 size-90 text-center fragment]
-Software industry do @color[red](Quality Engineering) <br/>
-Finding bugs is an engineering stream.
-@snapend
+<div class="fragment humble-dijkstra">
+@quote[Program testing can be a very effective way to show the presence of bugs, but it is hopelessly inadequate for showing their absence.](“The Humble Programmer,” Edsger W. Dijkstra)
+</div>
 
 @snap[mt20 size-90 text-center text-blue fragment]
 Is there a better way ?  @css[text-green fragment](Type theory)
