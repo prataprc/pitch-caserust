@@ -2,7 +2,7 @@
 
 @snap[midpoint text-center slide1 span-60]
 <h1>A case for Rust</h1>
-Boot-loaders
+Bootloaders
 <br/>to
 <br/>Browser-applications.
 @snapend
@@ -161,7 +161,7 @@ Garbage collector
 
 @ul[crash-free]
 - @color[blue](C) can give programmer total freedom, free as in @color[red](you can shoot yourself all you want) free.
-- On the other end - languages like @color[blue](Python Java Javascript) has garbage collector for safety. And sadly, the garbage collector doesn't know that he is a bad influence.
+- @color[blue](Python), @color[blue](Java), @color[blue](Javascript) etc.. has garbage collector for safety, and sadly, the garbage collector doesn't know that he is a bad influence.
 @ulend
 
 +++
@@ -710,16 +710,25 @@ is as important as the correctness of computer programs.
 Achilles heal
 =============
 
-@css[fragment](No matter how careful we are,)
-@css[fragment](there are some pitfalls in languages,)
-@css[fragment](that ends up as the achilles heal for real-time systems.)
-@css[fragment](Like,)
+@css[text-bold fragment](WYSMNWYG) @css[fragment](-- What You See May Not What You Get)
 
-@ul[mt20]
+@snap[text-center fragment text-green]
+Why ?
+@snapend
+
+@ul[mt30]
 - Garbage collection.
 - Abstraction overhead.
 - Runtime scheduler.
 @ulend
+
+@snap[mt30 text-center fragment]
+When **things** happen inbetween the lines of code
+@snapend
+
+@snap[text-center text-blue fragment]
+It gets harder to predict
+@snapend
 
 +++
 
@@ -728,22 +737,22 @@ Achilles heal
 Garbage collection
 ==================
 
-@snap[mt20 fragment]
-Garbage collectors are independant threads that wake up periodically,
-or when there is memory pressure, to clean up dangling memory blocks
-and give it back to free-pool and/or to the operating-system.
+<br/>
+
+@snap[text-center fragment]
+Memory gets managed at compile time
 @snapend
 
-@snap[mt20 fragment]
-Garbage collectors not only take up CPU and cause
-@color[blue](memory contention), in the worst case they introduce
-@color[blue](stop-the-world) scenarios that shall block all the
-threads in a program for as less as few micro-seconds to as much as
-@color[red](several seconds).
+@snap[text-center mt30 fragment]
+No allocs and no frees
 @snapend
 
-@snap[mt20 fragment]
-Rust - No garbage collection
+@snap[text-center mt30 fragment]
+No Garbage to collect.
+@snapend
+
+@snap[text-center mt30 fragment]
+No stop-the-word surprises.
 @snapend
 
 +++
