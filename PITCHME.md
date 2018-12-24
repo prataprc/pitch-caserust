@@ -2,7 +2,7 @@
 
 @snap[midpoint text-center slide1 span-60]
 <h1>A case for Rust</h1>
-Bootloaders
+Boot-loaders
 <br/>to
 <br/>Browser-applications.
 @snapend
@@ -54,7 +54,7 @@ The need for programming arises because
 @snapend
 
 @snap[why-program-2 text-center text-gray fragment]
-We want to automate repeatitive jobs, we need logic, we need mathematics
+We want to automate repetitive jobs, we need logic, we need mathematics
 and bunch of electronics.
 @snapend
 
@@ -85,7 +85,7 @@ Not a gold rush! Just market
 @snapend
 
 @snap[mt20 text-center fragment]
-The market for automating repeatitive jobs are no different.
+The market for automating repetitive jobs are no different.
 @snapend
 
 @snap[mt20 text-center fragment]
@@ -192,8 +192,8 @@ With @color[red](great power) comes @color[red](great mistakes).
 </table>
 
 @snap[mt30 text-center fragment]
-In Rust, enjoy the raw performance without alloc and free.
-Delegate power to unsafe functions.
+In Rust, enjoy the raw performance without @color[blue](alloc) and
+@color[blue](free). Delegate power to unsafe functions.
 @snapend
 
 ---
@@ -205,7 +205,7 @@ Performance
 With millions of transistors packed in a micro-chip
 @snapend
 @snap[size-80 fragment]
-Ever increasing GigaBytes of Memory
+Ever increasing Gigabytes of Memory
 @snapend
 
 @snap[size-80 fragment]
@@ -459,7 +459,7 @@ Finger typing
 
 @snap[mt20 size-90 text-center fragment]
 Until type-theory evolved into what it is today, languages that call
-themself as strongly-typed mostly did finger typing.
+them self as strongly-typed mostly did finger typing.
 @snapend
 
 @snap[mt20 size-90 text-center fragment]
@@ -478,7 +478,7 @@ Type theory
 
 @ul[mt20 size-90]
 - Forging a type means, @color[blue](clear abstraction of values and its behaviours).
-- When behaviour of programs interact, their @color[blue](types should be aligned).
+- When behavior of programs interact, their @color[blue](types should be aligned).
 - When types are aligned, @color[blue](functions are composable).
 - With composable functions, @color[blue](complexity can be tamed).
 @ulend
@@ -580,7 +580,7 @@ fn main() {
 Example: Scala Vs Rust
 ======================
 
-Incrementing every number in a array/list by 5.
+Increment every number in a array/list by 5.
 
 <h3 class="size-90 text-center">Scala</h3>
 
@@ -632,7 +632,7 @@ value    : INT_LITERAL.
 ```
 
 Above is an example for parsing Comma separated numbers using LALR grammar -
-a domain specific language to generate parsers.
+a domain specific language to generate parser.
 
 +++
 
@@ -855,7 +855,7 @@ void isPalindrome(char str[])
 
 +++
 
-C: Palindrom integers
+C: Palindrome integers
 =====================
 
 ```c
@@ -910,7 +910,7 @@ pub fn is_palindrome<T: Eq>(x: &[T]) -> bool {
 @snap[mt20 fragment]
 Irrespective of whether we are operating on chars, numbers, floats or
 any other data-type, as long as the type has @color[blue](Eq) trait,
-we can solve the problem of palindrom, @css[fragment](short and sweet.)
+we can solve the problem of palindrome, @css[fragment](short and sweet.)
 @snapend
 
 ---
