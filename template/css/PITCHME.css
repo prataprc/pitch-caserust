@@ -401,8 +401,14 @@ section.size-60, div.size-60, table.size-60, h3.size-60, span.size-60  {
 section.size-50, div.size-50, table.size-50, h3.size-50, span.size-50  {
     font-size: 50% !important;
 }
+section.size-40, div.size-40, table.size-40, h3.size-40, span.size-40 {
+    font-size: 40% !important;
+}
 section.size-30, div.size-30, table.size-30, h3.size-30, span.size-30 {
     font-size: 30% !important;
+}
+section.size-10, div.size-10, table.size-10, h3.size-10, span.size-10 {
+    font-size: 10% !important;
 }
 div.joker {
     top: 3em;

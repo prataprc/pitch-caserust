@@ -233,7 +233,11 @@ A computers can last @color[blue](5-10 times longer) with same battery capacity.
 Performance: Execution time
 ===========================
 
-<canvas data-chart="line">
+@snap[size-40 text-bold text-center]
+Lesser is better
+@snapend
+
+<canvas data-chart="bar">
 <!--
 {
  "data": {
@@ -244,36 +248,38 @@ Performance: Execution time
    ],
   "datasets": [
    {
-    "fill": false,
-    "cubicInterpolationMode": "monotone",
-    "data": [1.76, 6.27, 1.75, 1.98, 1.64, 1.36, 3.72, 8.72, 9.36, 1.46 ],
-    "label":"C",
-    "borderColor":"crimson"
-   },
-   {
-    "fill": false,
-    "cubicInterpolationMode": "monotone",
-    "data": [4.00, 13.06, 2.04, 3.95, 5.47, 2.06, 28.56, 17.83, 21.00, 28.89 ],
-    "label":"Go",
-    "borderColor":"green"
-   },
-   {
-    "fill": false,
-    "cubicInterpolationMode": "monotone",
-    "data": [1.60, 5.98, 1.74, 1.97, 1.74, 1.46, 4.14, 9.87, 13.25, 2.44 ],
     "label":"Rust",
-    "borderColor":"brown"
+    "data": [1.60, 5.98, 1.74, 1.97, 1.74, 1.46, 4.14, 9.87, 13.25, 2.44 ],
+    "backgroundColor": "rgba(170, 80, 70, 1)"
    },
    {
-    "fill": false,
-    "cubicInterpolationMode": "monotone",
-    "data": [3.29, 8.66, 3.13, 4.27, 6.96, 2.32, 8.28, 17.91, 22, 10.52 ],
+    "label":"C",
+    "data": [1.76, 6.27, 1.75, 1.98, 1.64, 1.36, 3.72, 8.72, 9.36, 1.46 ],
+    "backgroundColor": "rgba(70, 170, 130, 1)"
+   },
+   {
+    "label":"Go",
+    "data": [4.00, 13.06, 2.04, 3.95, 5.47, 2.06, 28.56, 17.83, 21.00, 28.89 ],
+    "backgroundColor": "rgba(170, 70, 130, 1)"
+   },
+   {
     "label":"Java",
-    "borderColor":"cyan"
+    "data": [3.29, 8.66, 3.13, 4.27, 6.96, 2.32, 8.28, 17.91, 22, 10.52 ],
+    "backgroundColor": "rgba(70, 110, 170, 1)"
    }
   ]
- }, 
- "options": { "responsive": "true" }
+ },
+ "options": {
+    "responsive": "true",
+    "scales": { "xAxes": [{
+        "barPercentage": 0.5,
+        "categoryPercentage": 0.6,
+        "barThickness": 12,
+        "maxBarThickness": 8,
+        "minBarLength": 2,
+        "gridLines": { "offsetGridLines": true }
+    }]}
+ }
 }
 -->
 </canvas>
@@ -287,7 +293,11 @@ Courtesy: https://benchmarksgame-team.pages.debian.net/benchmarksgame
 Performance: Memory
 ===================
 
-<canvas data-chart="line">
+@snap[size-40 text-bold text-center]
+Lesser is better
+@snapend
+
+<canvas data-chart="bar">
 <!--
 {
  "data": {
@@ -298,36 +308,38 @@ Performance: Memory
    ],
   "datasets": [
    {
-    "fill": false,
-    "cubicInterpolationMode": "monotone",
-    "data": [995212, 137956, 4520, 2600, 33712, 3112, 175692, 1848, 1808, 194804 ],
     "label":"Rust",
-    "borderColor":"brown"
+    "data": [995212, 137956, 4520, 2600, 33712, 3112, 175692, 1848, 1808, 194804 ],
+    "backgroundColor": "rgba(170, 80, 70, 1)"
    },
    {
-    "fill": false,
-    "cubicInterpolationMode": "monotone",
-    "data": [994524, 130024, 2708, 1160, 26188, 2920, 117408, 916, 1088, 152124 ],
     "label":"C",
-    "borderColor":"crimson"
+    "data": [994524, 130024, 2708, 1160, 26188, 2920, 117408, 916, 1088, 152124 ],
+    "backgroundColor": "rgba(70, 170, 130, 1)"
    },
    {
-    "fill": false,
-    "cubicInterpolationMode": "monotone",
-    "data": [826668, 148316, 8964, 2664, 31040, 3432, 466636, 1480, 1536, 338812 ],
     "label":"Go",
-    "borderColor":"green"
+    "data": [826668, 148316, 8964, 2664, 31040, 3432, 466636, 1480, 1536, 338812 ],
+    "backgroundColor": "rgba(170, 70, 130, 1)"
    },
    {
-    "fill": false,
-    "cubicInterpolationMode": "monotone",
-    "data": [724008, 385768, 37324, 32960, 76748, 42556, 982224, 31560, 32496, 637380],
     "label":"Java",
-    "borderColor":"cyan"
+    "data": [724008, 385768, 37324, 32960, 76748, 42556, 982224, 31560, 32496, 637380],
+    "backgroundColor": "rgba(70, 110, 170, 1)"
    }
   ]
  }, 
- "options": { "responsive": "true" }
+ "options": {
+    "responsive": "true",
+    "scales": { "xAxes": [{
+        "barPercentage": 0.5,
+        "categoryPercentage": 0.6,
+        "barThickness": 12,
+        "maxBarThickness": 8,
+        "minBarLength": 2,
+        "gridLines": { "offsetGridLines": true }
+    }]}
+ }
 }
 -->
 </canvas>
@@ -341,7 +353,11 @@ Courtesy: https://benchmarksgame-team.pages.debian.net/benchmarksgame
 Performance: Source lines
 =========================
 
-<canvas data-chart="line">
+@snap[size-40 text-bold text-center]
+Lesser is better
+@snapend
+
+<canvas data-chart="bar">
 <!--
 {
  "data": {
@@ -352,41 +368,43 @@ Performance: Source lines
    ],
   "datasets": [
    {
-    "fill": false,
-    "cubicInterpolationMode": "monotone",
-    "data": [1376, 1648, 1366, 1126, 1332, 1906, 721, 1020, 1805, 765 ],
     "label":"Rust",
-    "borderColor":"brown"
+    "data": [1376, 1648, 1366, 1126, 1332, 1906, 721, 1020, 1805, 765 ],
+    "backgroundColor": "rgba(170, 80, 70, 1)"
    },
    {
-    "fill": false,
-    "cubicInterpolationMode": "monotone",
-    "data": [1438, 1506, 452, 1139, 1135, 2268, 836, 910, 1490, 1397 ],
     "label":"C",
-    "borderColor":"crimson"
+    "data": [1438, 1506, 452, 1139, 1135, 2268, 836, 910, 1490, 1397 ],
+    "backgroundColor": "rgba(70, 170, 130, 1)"
    },
    {
-    "fill": false,
-    "cubicInterpolationMode": "monotone",
-    "data": [611, 1722, 603, 548, 905, 1358, 654, 900, 1200, 802],
     "label":"Go",
-    "borderColor":"green"
+    "data": [611, 1722, 603, 548, 905, 1358, 654, 900, 1200, 802],
+    "backgroundColor": "rgba(170, 70, 130, 1)"
    },
    {
-    "fill": false,
-    "cubicInterpolationMode": "monotone",
-    "data": [2183, 1812, 938, 950, 796, 2473, 835, 1282, 1489, 929],
     "label":"Java",
-    "borderColor":"cyan"
+    "data": [2183, 1812, 938, 950, 796, 2473, 835, 1282, 1489, 929],
+    "backgroundColor": "rgba(70, 110, 170, 1)"
    }
   ]
  },
- "options": { "responsive": "true" }
+ "options": {
+    "responsive": "true",
+    "scales": { "xAxes": [{
+        "barPercentage": 0.5,
+        "categoryPercentage": 0.6,
+        "barThickness": 12,
+        "maxBarThickness": 8,
+        "minBarLength": 2,
+        "gridLines": { "offsetGridLines": true }
+    }]}
+ }
 }
 -->
 </canvas>
 
-@snap[mt20 size-60]
+@snap[mt10 size-60]
 Courtesy: https://benchmarksgame-team.pages.debian.net/benchmarksgame
 @snapend
 
@@ -396,7 +414,7 @@ Strong type system
 ==================
 
 @snap[mt20 size-80 text-center fragment]
-Ask a programmer, where the longest hours are spent ...
+Ask a programmer where the longest hours are spent ...
 @snapend
 
 <table class="mt30 size-80">
@@ -414,7 +432,7 @@ As it happens most of the hard-work goes into
 @size[2em](Debugging!!)
 @snapend
 @snap[mt20 text-center fragment]
-Not just today or yesterday, but ever since software programs got developed.
+Not just today or yesterday, but ever since the epoch.
 @snapend
 
 +++
@@ -728,8 +746,8 @@ It gets harder to predict
 
 <!-- .slide: class="size-90" -->
 
-Garbage collection
-==================
+(No) Garbage collection
+=======================
 
 <br/>
 
@@ -751,17 +769,17 @@ No stop-the-word surprises.
 
 +++
 
-Abstraction overhead
-====================
+(No) Abstraction overhead
+=========================
 
 @snap[size-80 java-abstraction fragment]
 @css[size-60](Courtesy: image used from a presentation by Aaron Turon.)
 ![java](assets/java-abstraction.png)
-The cost of abstraction in Java.
+The cost of abstraction in @color[blue](Java).
 @snapend
 
 @snap[mt20 size-80 fragment]
-Rust - uses zero-cost-abstraction model, like mono-morphisation.
+@color[brown](Rust) uses zero-cost-abstraction model like mono-morphisation.
 The only abstraction that happens behind a pointer is trait-object.
 @snapend
 
@@ -769,12 +787,12 @@ The only abstraction that happens behind a pointer is trait-object.
 
 <!-- .slide: class="size-80" -->
 
-Runtime scheduler
-=================
+(No) Runtime scheduler
+======================
 
 Languages like Erlang, Golang has increased the popularity of
 concurrent programming. As a side effect erlang-programs and
-golang-programs introduce a @color[blue](scheduler as part of the running process),
+golang-programs introduce @color[blue](scheduler as part of the running process),
 to handle @color[blue](green-threads).
 
 An example side-effect:
