@@ -350,6 +350,12 @@ code.hljs {
 .mt30 {
     margin-top: 30px !important;
 }
+.mt40 {
+    margin-top: 40px !important;
+}
+.mt60 {
+    margin-top: 60px !important;
+}
 .text-left {
     text-align: left !important;
 }
@@ -376,7 +382,8 @@ div.why-program-1 {
 }
 div.why-program-2 {
     position: fixed;
-    bottom: 2em;
+    left: 3.5em;
+    bottom: 3em;
     text-align: center;
 }
 section.size-90, div.size-90, ul.size-90, table.size-90, h3.size-90 {
@@ -413,9 +420,9 @@ div.batman-line {
 }
 ul.crash-free {
     position: fixed;
-    top: 18em;
+    top: 14em;
     text-align: left;
-    font-size: 60% !important;
+    font-size: 75% !important;
 }
 ul.style-none li {
     list-style-type: none;

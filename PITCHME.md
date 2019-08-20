@@ -20,13 +20,13 @@ Why language ?
 <br/>
 
 @snap[fragment text-center]
-@color[gray](A good carpenter is only as good as ones tools.)
+@color[gray](A good carpenter is only as good as his tools.)
 @snapend
 
 <br/>
 
 @snap[fragment text-center]
-And programming language is the @color[blue](#1) tool for everything that
+Programming languages are the @color[blue](#1) tool for everything that
 involves a computer.
 @snapend
 
@@ -38,24 +38,23 @@ Why program ?
 =============
 
 @snap[west text-blue fragment]
-Call it Algorithms
+Be it Algorithms
 @snapend
 
 @snap[east text-green fragment]
-Call it Data mining
+Be it Data mining
 @snapend
 
 @snap[mt40 center text-center text-brown fragment]
-Call it Artificial Intelligence
+Be it Artificial Intelligence
 @snapend
 
-@snap[why-program-1 fragment]
-The need for programming arises because
+@snap[why-program-1 text-center fragment]
+The need for programming arises because,
 @snapend
 
 @snap[why-program-2 text-center text-gray fragment]
-We want to automate repetitive jobs, we need logic, we need mathematics
-and bunch of electronics.
+We want to automate repetitive jobs.
 @snapend
 
 ---
@@ -63,7 +62,7 @@ and bunch of electronics.
 Gold rush ?
 ===========
 
-@snap[mt20 text-center fragment]
+@snap[mt60 text-center fragment]
 Close to @color[blue](700+) languages are being developed and maintained in past 50 years.
 @snapend
 
@@ -85,7 +84,7 @@ Not a gold rush! Just market
 @snapend
 
 @snap[mt20 text-center fragment]
-The market for automating repetitive jobs are no different.
+Market for automating repetitive jobs are no different.
 @snapend
 
 @snap[mt20 text-center fragment]
@@ -201,37 +200,32 @@ In Rust, enjoy the raw performance without @color[blue](alloc) and
 Performance
 ===========
 
-@snap[mt20 size-80 fragment]
-With millions of transistors packed in a micro-chip
-@snapend
-@snap[size-80 fragment]
-Ever increasing Gigabytes of Memory
-@snapend
+@ul[mt20 size-80 fragment]
+* With millions of transistors packed in a micro-chip
+* With ever increasing Gigabytes of Memory
+@ulend
 
-@snap[size-80 fragment]
+@snap[size-80 text-gray fragment]
 Response time of 30ms is barely noticed over response time of 10ms.
 @snapend
 
 @snap[mt20 size-80 fragment]
-But then -
+But then,
 @snapend
 
 @snap[mt20 size-80 fragment]
-Wireless networks and lithium batteries added a new
+Wireless networks and lithium batteries are adding a new
 dimension to computing - @css[text-blue fragment](mobility).
 @snapend
 
-@snap[mt20 size-80 fragment]
-With micro-chips -
-@snapend
-@ul[size-80]
-* Having 1/3rd of the transistors.
+@ul[mt30 size-80]
+* With 1/3rd of the transistors.
 * With 1/3rd of the memory
 * Running at 1/3rd clock rate.
 @ulend
 
 @snap[size-80 fragment]
-Can last @color[blue](5-10 times longer) with same battery capacity.
+A computers can last @color[blue](5-10 times longer) with same battery capacity.
 @snapend
 
 +++
@@ -240,7 +234,7 @@ Performance: Execution time
 ===========================
 
 <canvas data-chart="line">
-<!-- 
+<!--
 {
  "data": {
   "labels": [
@@ -294,7 +288,7 @@ Performance: Memory
 ===================
 
 <canvas data-chart="line">
-<!-- 
+<!--
 {
  "data": {
   "labels": [
@@ -348,7 +342,7 @@ Performance: Source lines
 =========================
 
 <canvas data-chart="line">
-<!-- 
+<!--
 {
  "data": {
   "labels": [
@@ -832,8 +826,8 @@ Without compromising on program correctness and performance
 
 +++
 
-C: Palindrom strings
-====================
+C: Palindrom for string type
+============================
 
 ```c
 void isPalindrome(char str[])
@@ -855,8 +849,8 @@ void isPalindrome(char str[])
 
 +++
 
-C: Palindrome integers
-=====================
+C: Palindrome for integer type
+==============================
 
 ```c
 int palindrome(int arr[], int begin, int end)
@@ -875,8 +869,8 @@ int palindrome(int arr[], int begin, int end)
 
 +++
 
-C: Palindrome floats
-====================
+C: Palindrome for float type
+============================
 
 ```c
 int palindrome(float arr[], int begin, int end)
@@ -897,8 +891,10 @@ int palindrome(float arr[], int begin, int end)
 
 <!-- .slide: class="size-80" -->
 
-Rust: Palindrome
-================
+Rust: Palindrome for all types
+==============================
+
+<br>
 
 ```rust
 pub fn is_palindrome<T: Eq>(x: &[T]) -> bool {
@@ -906,6 +902,8 @@ pub fn is_palindrome<T: Eq>(x: &[T]) -> bool {
     (&x[..i]).iter().zip((&x[i..]).iter().rev()).all(|(a,b)| a == b)
 }
 ```
+
+<br>
 
 @snap[mt20 fragment]
 Irrespective of whether we are operating on chars, numbers, floats or
